@@ -21,6 +21,10 @@ return {
 
   {
     "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
     keys = {
       {
         "<leader>r",
@@ -34,6 +38,9 @@ return {
       },
     },
     opts = {},
+    config = function()
+      require("refactoring").setup({})
+    end,
   },
 
   {
