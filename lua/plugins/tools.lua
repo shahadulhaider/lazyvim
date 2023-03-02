@@ -142,4 +142,9 @@ return {
     "LudoPinelli/comment-box.nvim",
     event = "BufReadPre",
   },
+
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+  },
 }
