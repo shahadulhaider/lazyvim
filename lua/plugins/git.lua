@@ -11,7 +11,14 @@ return {
   {
 
     "TimUntersberger/neogit",
-    event = { "BufReadPre" },
+    event = { "BufReadPost" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
+    },
   },
 
   -- better diffing

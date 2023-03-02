@@ -9,7 +9,29 @@ return {
       })
     end,
   },
-  { "ellisonleao/gruvbox.nvim", lazy = false },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    config = function()
+      require("gruvbox").setup({
+        undercurl = true,
+        underline = true,
+        bold = true,
+        italic = true,
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = "hard", -- can be "hard", "soft" or empty string
+        palette_overrides = {},
+        overrides = {},
+        dim_inactive = false,
+        transparent_mode = false,
+      })
+    end,
+  },
   {
     "marko-cerovac/material.nvim",
     lazy = false,
@@ -144,5 +166,52 @@ return {
         end,
       }
     end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          styles = {
+            comments = "italic",
+            keywords = "bold",
+            types = "italic,bold",
+          },
+        },
+      })
+    end,
+  },
+  {
+    "Mofiqul/adwaita.nvim",
+    lazy = false,
+  },
+  {
+    "tanvirtin/monokai.nvim",
+    lazy = false,
+    config = function()
+      require("monokai").setup({
+        palette = require("monokai").pro,
+      })
+    end,
+  },
+  {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    config = function()
+      require("poimandres").setup({
+        -- leave this setup function empty for default config
+        -- or refer to the configuration section
+        -- for configuration options
+      })
+    end,
+  },
+  -- set colorscheme
+
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nightfox",
+    },
   },
 }
