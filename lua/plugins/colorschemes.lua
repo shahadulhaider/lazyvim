@@ -109,14 +109,14 @@ return {
     end,
   },
   { "projekt0n/github-nvim-theme", lazy = false },
-  {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    config = function()
-      local kanagawa = require("kanagawa")
-      kanagawa.setup()
-    end,
-  },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     local kanagawa = require("kanagawa")
+  --     kanagawa.setup()
+  --   end,
+  -- },
   { "Shatur/neovim-ayu", lazy = false },
   { "shaunsingh/oxocarbon.nvim", lazy = false },
   { "LunarVim/horizon.nvim", lazy = false },
