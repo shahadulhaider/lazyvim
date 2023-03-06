@@ -39,7 +39,6 @@ return {
         desc = "Markdown Preview",
       },
     },
-    opts = { theme = "dark" }, -- 'dark' or 'light'
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
       require("which-key").register({
@@ -84,8 +83,6 @@ return {
 
   "wellle/targets.vim",
 
-  { "rafcamlet/nvim-luapad", cmd = "Luapad" },
-
   {
     "bennypowers/nvim-regexplainer",
     event = "BufRead",
@@ -93,22 +90,6 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter", "MunifTanjim/nui.nvim" },
   },
   { "itchyny/vim-highlighturl", event = "VeryLazy" },
-
-  {
-    "lukas-reineke/headlines.nvim",
-    ft = { "org", "norg", "markdown", "yaml" },
-    config = function()
-      require("headlines").setup({
-        markdown = {
-          headline_highlights = { "Headline1", "Headline2", "Headline3" },
-        },
-        org = {
-          headline_highlights = false,
-        },
-        norg = { codeblock_highlight = false },
-      })
-    end,
-  },
 
   {
     "utilyre/barbecue.nvim",
@@ -136,6 +117,23 @@ return {
   {
     "LudoPinelli/comment-box.nvim",
     event = "BufReadPre",
+    init = function()
+      require("which-key").register({
+        ["<leader>i"] = { name = "+insert", c = { name = "+comment-box" } },
+      })
+    end,
+    keys = {
+      {
+        "<leader>icl",
+        "<cmd>CBlbox<cr>",
+        desc = "Comment box - Left",
+      },
+      {
+        "<leader>icc",
+        "<cmd>CBccbox<cr>",
+        desc = "Comment box - Center",
+      },
+    },
   },
 
   {
