@@ -16,6 +16,7 @@ return {
   {
     "nvim-neorg/neorg",
     ft = "norg",
+    build = ":Neorg sync-parsers",
     opts = {
       load = {
         ["core.defaults"] = {},
@@ -24,7 +25,19 @@ return {
           config = { engine = "nvim-cmp" },
         },
         ["core.integrations.nvim-cmp"] = {},
+        ["core.norg.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+          },
+        },
+        ["core.integrations.telescope"] = {},
       },
+    },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-neorg/neorg-telescope" },
     },
   },
 
