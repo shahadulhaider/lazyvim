@@ -186,15 +186,15 @@ return {
     "Mofiqul/adwaita.nvim",
     lazy = false,
   },
-  {
-    "tanvirtin/monokai.nvim",
-    lazy = false,
-    config = function()
-      require("monokai").setup({
-        palette = require("monokai").pro,
-      })
-    end,
-  },
+  -- {
+  --   "tanvirtin/monokai.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("monokai").setup({
+  --       palette = require("monokai").pro,
+  --     })
+  --   end,
+  -- },
   {
     "olivercederborg/poimandres.nvim",
     lazy = false,
@@ -211,7 +211,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nightfox",
+      colorscheme = "ayu-mirage",
     },
   },
 }
