@@ -17,13 +17,23 @@ return {
     keys = {
       {
         "<leader>ot",
-        "<cmd>ToggleTerm direction=horizontal<cr>",
-        desc = "Terminal",
+        "<cmd>ToggleTerm<cr>",
+        desc = "Terminal (root)",
       },
       {
         "<leader>oT",
+        "<cmd>ToggleTerm dir=%:h<cr>",
+        desc = "Terminal (cwd)",
+      },
+      {
+        "<F7>",
         "<cmd>ToggleTerm direction=float<cr>",
-        desc = "Terminal (float)",
+        desc = "Terminal (root)",
+      },
+      {
+        "<F8>",
+        "<cmd>ToggleTerm direction=float dir=%:h<cr>",
+        desc = "Terminal (cwd)",
       },
     },
   },

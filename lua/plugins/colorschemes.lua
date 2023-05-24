@@ -126,18 +126,28 @@ return {
   { "shaunsingh/oxocarbon.nvim", lazy = false },
   { "LunarVim/horizon.nvim", lazy = false },
   { "rose-pine/neovim", name = "rose-pine", lazy = false },
+  -- {"folke/tokyonight.nvim"}
   {
     "tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = function()
       return {
-        style = "moon",
+        style = "night",
         -- transparent = true,
         -- styles = {
         --   sidebars = "transparent",
         --   floats = "transparent",
         -- },
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          functions = {},
+          variables = {},
+          -- Background styles. Can be "dark", "transparent" or "normal"
+          sidebars = "dark", -- style for sidebars, see below
+          floats = "dark", -- style for floating windows
+        },
         sidebars = {
           "qf",
           "vista_kind",
@@ -148,10 +158,10 @@ return {
           "Outline",
         },
         on_highlights = function(hl, c)
-          hl.CursorLineNr = { fg = c.orange, bold = true }
-          hl.LineNr = { fg = c.orange, bold = true }
-          hl.LineNrAbove = { fg = c.fg_gutter }
-          hl.LineNrBelow = { fg = c.fg_gutter }
+          -- hl.CursorLineNr = { fg = c.orange, bold = true }
+          -- hl.LineNr = { fg = c.orange, bold = true }
+          -- hl.LineNrAbove = { fg = c.fg_gutter }
+          -- hl.LineNrBelow = { fg = c.fg_gutter }
           local prompt = "#2d3149"
           hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
           hl.TelescopeBorder = { bg = c.bg_dark, fg = c.bg_dark }
@@ -216,7 +226,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "ayu-mirage",
+      colorscheme = "tokyonight-night",
     },
   },
 }
