@@ -17,11 +17,25 @@ return {
 
     keys = {
       {
+        "<leader>,",
+        function()
+          require("telescope").extensions.file_browser.file_browser({ path = "%:p:h", select_buffer = true })
+        end,
+        desc = "Find Files (cwd)",
+      },
+      {
+        "<leader>bb",
+        function()
+          require("telescope.builtin").buffers()
+        end,
+        desc = "Switch Buffers",
+      },
+      {
         "<leader>fp",
         function()
           require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
         end,
-        desc = "Find Plugin File",
+        desc = "Find Plugin Files",
       },
     },
 
@@ -32,24 +46,29 @@ return {
         sorting_strategy = "ascending",
         winblend = 0,
       },
-    },
 
-    extensions = {
-      project = {
-        base_dirs = {
-          "~/projects",
+      extensions = {
+        project = {
+          base_dirs = {
+            { "~/code/otter/" },
+          },
+        },
+        undo = {
+          use_delta = true,
+          side_by_side = true,
+          layout_strategy = "vertical",
+          layout_config = {
+            preview_height = 0.4,
+          },
+        },
+        file_browser = {
+          hidden = {
+            file_browser = true,
+            folder_browser = true,
+          },
         },
       },
-      undo = {
-        use_delta = true,
-        side_by_side = true,
-        layout_strategy = "vertical",
-        layout_config = {
-          preview_height = 0.4,
-        },
-      },
     },
-
     config = function(_, opts)
       local telescope = require("telescope")
       telescope.setup(opts)
