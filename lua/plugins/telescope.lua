@@ -42,11 +42,43 @@ return {
     opts = {
       defaults = {
         layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
+        layout_config = {
+          prompt_position = "top",
+          horizontal = {
+            anchor = "N",
+          },
+        },
         sorting_strategy = "ascending",
         winblend = 0,
+        hidden = true,
+        path_display = {
+          truncate = 2,
+          -- shorten = {
+          --   len = 1,
+          --   exclude = { 1, -1 },
+          -- },
+        },
+        file_ignore_patterns = {
+          "node_modules",
+          "package-lock.json",
+        },
       },
-
+      pickers = {
+        find_files = {
+          previewer = false,
+          layout_config = {
+            height = 20,
+            width = 80,
+          },
+        },
+        git_files = {
+          previewer = false,
+          layout_config = {
+            height = 20,
+            width = 80,
+          },
+        },
+      },
       extensions = {
         project = {
           base_dirs = {
@@ -65,6 +97,11 @@ return {
           hidden = {
             file_browser = true,
             folder_browser = true,
+          },
+          previewer = false,
+          layout_config = {
+            height = 20,
+            width = 80,
           },
         },
       },

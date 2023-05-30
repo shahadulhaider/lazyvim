@@ -167,7 +167,7 @@ return {
           hl.TelescopeBorder = { bg = c.bg_dark, fg = c.bg_dark }
           hl.TelescopePromptNormal = { bg = prompt }
           hl.TelescopePromptBorder = { bg = prompt, fg = prompt }
-          hl.TelescopePromptTitle = { bg = c.fg_gutter, fg = c.orange }
+          hl.TelescopePromptTitle = { bg = c.fg_gutter, fg = c.cyan }
           hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
           hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
 
