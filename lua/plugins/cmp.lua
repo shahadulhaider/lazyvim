@@ -10,7 +10,42 @@ return {
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
-    commit = "a9c701fa7e12e9257b3162000e5288a75d280c28", -- https://github.com/hrsh7th/nvim-cmp/issues/1382
+    -- commit = "a9c701fa7e12e9257b3162000e5288a75d280c28", -- https://github.com/hrsh7th/nvim-cmp/issues/1382
+    dependencies = {
+      -- Autocompletion plugin
+      -- Completion Sources --
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-nvim-lua" },
+      { "hrsh7th/cmp-emoji" },
+      { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-nvim-lsp-signature-help" },
+      { "jcha0713/cmp-tw2css" },
+      { "dcampos/cmp-emmet-vim" },
+    },
+    config = function(_, opts)
+      local cmp = require("cmp")
+      cmp.setup(opts)
+
+      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "buffer" },
+        }),
+      })
+
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      })
+    end,
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local function border(hl_name)
@@ -43,6 +78,27 @@ return {
         completion = cmp.config.window.bordered(border_opts),
         documentation = cmp.config.window.bordered(border_opts),
       }
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        {
+          name = "buffer",
+          {
+            option = {
+              get_bufnrs = function()
+                return vim.api.nvim_list_bufs()
+              end,
+            },
+          },
+        },
+        { name = "luasnip" },
+        { name = "path" },
+        { name = "nvim_lua" },
+        { name = "emoji" },
+        { name = "neorg" },
+        { name = "nvim_lsp_signature_help" },
+        { name = "cmp-tw2css" },
+        { name = "emmet_vim" },
+      })
       opts.mapping = cmp.mapping.preset.insert({
         ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
         ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
