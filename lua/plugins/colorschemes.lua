@@ -123,8 +123,14 @@ return {
   --   end,
   -- },
   { "Shatur/neovim-ayu", lazy = false },
-  { "shaunsingh/oxocarbon.nvim", lazy = false },
-  { "LunarVim/horizon.nvim", lazy = false },
+  {
+    "lalitmee/cobalt2.nvim",
+    event = { "ColorSchemePre" }, -- if you want to lazy load
+    dependencies = { "tjdevries/colorbuddy.nvim" },
+    init = function()
+      require("colorbuddy").colorscheme("cobalt2")
+    end,
+  },
   { "rose-pine/neovim", name = "rose-pine", lazy = false },
   -- {"folke/tokyonight.nvim"}
   {
@@ -210,19 +216,8 @@ return {
   --     })
   --   end,
   -- },
-  {
-    "olivercederborg/poimandres.nvim",
-    lazy = false,
-    config = function()
-      require("poimandres").setup({
-        -- leave this setup function empty for default config
-        -- or refer to the configuration section
-        -- for configuration options
-      })
-    end,
-  },
-  -- set colorscheme
 
+  -- set colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
