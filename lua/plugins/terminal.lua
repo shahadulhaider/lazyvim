@@ -12,112 +12,127 @@ return {
         end
       end,
       open_mapping = [[<c-\>]],
+      highlights = {
+        FloatBorder = { guibg = "#16161e", guifg = "#16161e" },
+        NormalFloat = { guibg = "#16161e" },
+      },
     },
     config = function(_, opts)
       require("toggleterm").setup(opts)
 
-      -- local Terminal = require("toggleterm.terminal").Terminal
-      --
-      -- local lazygit = Terminal:new({
-      --   cmd = "lazygit",
-      --   dir = "git_dir",
-      --   hidden = true,
-      --   direction = "float",
-      --   highlights = {
-      --     FloatBorder = { guibg = "", guifg = "" },
-      --     NormalFloat = { guibg = "Black" },
-      --   },
-      --   on_open = function(term)
-      --     vim.cmd("startinsert!")
-      --     vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-      --   end,
-      --   ---@diagnostic disable-next-line: unused-local
-      --   on_close = function(term)
-      --     vim.cmd("startinsert!")
-      --   end,
-      -- })
-      --
-      -- local btop = Terminal:new({
-      --   cmd = "btop",
-      --   hidden = true,
-      --   direction = "float",
-      --   on_open = function(term)
-      --     vim.cmd("startinsert!")
-      --     vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-      --   end,
-      --   on_close = function(term)
-      --     vim.cmd("startinsert!")
-      --   end,
-      --   highlights = {
-      --     FloatBorder = { guibg = "Black", guifg = "DarkGray" },
-      --     NormalFloat = { guibg = "Black" },
-      --   },
-      -- })
-      --
-      -- local lf = Terminal:new({
-      --   cmd = "lf",
-      --   hidden = true,
-      --   direction = "float",
-      --   on_open = function(term)
-      --     vim.cmd("startinsert!")
-      --     vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-      --   end,
-      --   on_close = function(term)
-      --     vim.cmd("startinsert!")
-      --   end,
-      --   float_opts = {
-      --     height = function()
-      --       return math.floor(vim.o.lines * 0.8)
-      --     end,
-      --     width = function()
-      --       return math.floor(vim.o.columns * 0.95)
-      --     end,
-      --   },
-      -- })
-      --
-      -- function _Lazygit_toggle()
-      --   lazygit:toggle()
-      -- end
-      --
-      -- function _Btop()
-      --   btop:toggle()
-      -- end
-      --
-      -- function _Lf()
-      --   lf:toggle()
-      -- end
+      local Terminal = require("toggleterm.terminal").Terminal
+
+      local lazygit = Terminal:new({
+        cmd = "lazygit",
+        dir = "git_dir",
+        hidden = true,
+        direction = "float",
+        on_open = function(term)
+          vim.cmd("startinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+        end,
+        ---@diagnostic disable-next-line: unused-local
+        on_close = function(term)
+          vim.cmd("startinsert!")
+        end,
+        float_opts = {
+          border = "none",
+          winblend = 0,
+          height = function()
+            return math.floor(vim.o.lines * 0.8)
+          end,
+          width = function()
+            return math.floor(vim.o.columns * 0.95)
+          end,
+        },
+      })
+
+      local btop = Terminal:new({
+        cmd = "btop",
+        hidden = true,
+        direction = "float",
+        on_open = function(term)
+          vim.cmd("startinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+        end,
+        on_close = function(term)
+          vim.cmd("startinsert!")
+        end,
+      })
+
+      local lf = Terminal:new({
+        cmd = "lf",
+        hidden = true,
+        direction = "float",
+        on_open = function(term)
+          vim.cmd("startinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+        end,
+        on_close = function(term)
+          vim.cmd("startinsert!")
+        end,
+        float_opts = {
+          height = function()
+            return math.floor(vim.o.lines * 0.8)
+          end,
+          width = function()
+            return math.floor(vim.o.columns * 0.95)
+          end,
+        },
+      })
+
+      function _Lazygit_toggle()
+        lazygit:toggle()
+      end
+
+      function _Btop()
+        btop:toggle()
+      end
+
+      function _Lf()
+        lf:toggle()
+      end
+
+      require("which-key").register({
+        ["<leader>t"] = { name = "+terminal" },
+      })
     end,
     keys = {
       {
-        "<leader>ot",
-        "<cmd>ToggleTerm<cr>",
-        desc = "Terminal (root)",
-      },
-      {
-        "<leader>oT",
-        "<cmd>ToggleTerm dir=%:h<cr>",
-        desc = "Terminal (cwd)",
-      },
-      {
-        "<F7>",
+        "<leader>tt",
         "<cmd>ToggleTerm direction=float<cr>",
         desc = "Terminal (root)",
       },
       {
-        "<F8>",
-        "<cmd>ToggleTerm direction=float dir=%:h<cr>",
-        desc = "Terminal (cwd)",
+        "<leader>tT",
+        "<cmd>ToggleTerm direction=float dir=%:p:h<cr>",
+        desc = "Terminal (here)",
       },
-      -- {
-      --   "<leader>og",
-      --   "<cmd>lua _Lazygit_toggle()<CR>",
-      --   desc = "Git",
-      -- },
-      -- {
-      --   "<leader>ob",
-      --   "<cmd>lua _Btop()<CR>",
-      --   desc = "Btop",
-      -- },
+      {
+        "<leader>ts",
+        "<cmd>ToggleTerm direction=horizontal<cr>",
+        desc = "Terminal (split)",
+      },
+      {
+        "<leader>tv",
+        "<cmd>ToggleTerm direction=vertical<cr>",
+        desc = "Terminal (vsplit)",
+      },
+      {
+        "<leader>tg",
+        "<cmd>lua _Lazygit_toggle()<CR>",
+        desc = "Git",
+      },
+      {
+        "<leader>tb",
+        "<cmd>lua _Btop()<CR>",
+        desc = "Btop",
+      },
+      {
+        "<leader>tf",
+        "<cmd>lua _Lf()<CR>",
+        desc = "Files",
+      },
     },
   },
 }

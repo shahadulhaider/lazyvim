@@ -25,6 +25,13 @@ return {
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
     },
+    config = function()
+      require("refactoring").setup({})
+
+      require("which-key").register({
+        ["<leader>r"] = { name = "+refactor" },
+      })
+    end,
     keys = {
       {
         "<leader>r",
@@ -38,9 +45,6 @@ return {
       },
     },
     opts = {},
-    config = function()
-      require("refactoring").setup({})
-    end,
   },
 
   {
