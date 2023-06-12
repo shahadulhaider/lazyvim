@@ -6,6 +6,11 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- mocha, macchiato, frappe, latte
+        integration = {
+          telescope = { enabled = true, border = false },
+          cmp = { enabled = true, border = false },
+          which_key = { enabled = true, border = false },
+        },
       })
     end,
   },
@@ -113,15 +118,61 @@ return {
       })
     end,
   },
+  {
+    "savq/melange-nvim",
+    lazy = true,
+  },
   { "projekt0n/github-nvim-theme", lazy = false },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     local kanagawa = require("kanagawa")
-  --     kanagawa.setup()
-  --   end,
-  -- },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    config = function()
+      local kanagawa = require("kanagawa")
+      kanagawa.setup({
+        undercurl = true,
+        commentStyle = { italic = true },
+        functionStyle = { bold = true },
+        keywordStyle = { bold = true, italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false,
+        terminalColors = true,
+        colors = {
+          palette = {},
+          theme = {
+            wave = {},
+            lotus = {},
+            dragon = {},
+            all = {
+              ui = {
+                bg_gutter = "none",
+                float = {
+                  bg = "none",
+                },
+              },
+            },
+          },
+        },
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            TelescopeTitle = { fg = theme.ui.special, bold = true },
+            TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+            TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+            TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+            TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+            TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+            TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+          }
+        end,
+        theme = "wave",
+        background = {
+          dark = "wave",
+          light = "lotus",
+        },
+      })
+    end,
+  },
   { "Shatur/neovim-ayu", lazy = false },
   {
     "lalitmee/cobalt2.nvim",
@@ -200,6 +251,21 @@ return {
             types = "italic,bold",
           },
         },
+        groups = {
+          all = {
+            -- NormalFloat = { link = "Normal" },
+            TelescopeNormal = { fg = "fg0", bg = "bg0" },
+            TelescopeBorder = { fg = "black", bg = "black" },
+            TelescopePromptNormal = { fg = "fg0" },
+            TelescopePromptPrefix = { fg = "orange" },
+            TelescopePromptTitle = { fg = "orange", bg = "bg0" },
+            TelescopePreviewTitle = { fg = "orange", bg = "bg0" },
+            TelescopeResultsTitle = { fg = "orange", bg = "bg0" },
+            TelescopeSelectionCaret = { fg = "orange" },
+            TelescopeSelection = { fg = "orange" },
+            -- TelescopeMatching = { fg = "cyan", bg = "green" },
+          },
+        },
       })
     end,
   },
@@ -216,12 +282,17 @@ return {
   --     })
   --   end,
   -- },
+  {
+    "rockyzhang24/arctic.nvim",
+    branch = "v2",
+    dependencies = { "rktjmp/lush.nvim" },
+  },
 
   -- set colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "duskfox",
     },
   },
 }

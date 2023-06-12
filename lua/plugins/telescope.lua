@@ -78,6 +78,11 @@ return {
             width = 80,
           },
         },
+        live_grep = { theme = "ivy" },
+        grep_string = { theme = "ivy" },
+        diagnostics = { theme = "ivy" },
+        lsp_document_symbols = { theme = "ivy" },
+        lsp_workspace_symbols = { theme = "ivy" },
       },
       extensions = {
         project = {
