@@ -6,11 +6,16 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- mocha, macchiato, frappe, latte
-        integration = {
-          telescope = { enabled = true, border = false },
-          cmp = { enabled = true, border = false },
-          which_key = { enabled = true, border = false },
+        styles = {
+          keywords = { "italic" },
         },
+        custom_highlights = function(colors)
+          return {
+            FloatBorder = { fg = colors.overlay0 },
+            NoiceCmdlinePopupBorder = { fg = colors.overlay0 },
+            VirtSplit = { link = "NormalNC" },
+          }
+        end,
       })
     end,
   },
@@ -292,7 +297,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "duskfox",
+      colorscheme = "catppuccin",
     },
   },
 }
