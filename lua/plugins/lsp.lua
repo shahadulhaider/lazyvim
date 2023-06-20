@@ -33,6 +33,7 @@ return {
       local nls = require("null-ls")
       local formatting = nls.builtins.formatting
       local diagnostics = nls.builtins.diagnostics
+      local actions = nls.builtins.code_actions
 
       nls.setup({
         debounce = 150,
@@ -52,6 +53,7 @@ return {
               "html",
               "yaml",
               "markdown",
+              "css",
               -- "liquid",
             },
           }),
@@ -66,6 +68,14 @@ return {
             command = "rubocop-daemon-wrapper",
           }),
           diagnostics.golangci_lint,
+          diagnostics.tidy,
+          diagnostics.eslint_d,
+          diagnostics.shellcheck,
+
+          -- Code Actions
+          actions.eslint_d,
+          actions.shellcheck,
+          actions.gitsigns,
         },
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
       })
