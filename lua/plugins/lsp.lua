@@ -34,6 +34,7 @@ return {
       local formatting = nls.builtins.formatting
       local diagnostics = nls.builtins.diagnostics
       local actions = nls.builtins.code_actions
+      local hover = nls.builtins.hover
 
       nls.setup({
         debounce = 150,
@@ -73,9 +74,16 @@ return {
           diagnostics.shellcheck,
 
           -- Code Actions
+          actions.eslint,
           actions.eslint_d,
           actions.shellcheck,
           actions.gitsigns,
+          actions.refactoring,
+          actions.ts_node_action,
+
+          -- Hover
+          hover.printenv,
+          hover.dictionary,
         },
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
       })
@@ -89,6 +97,15 @@ return {
     opts = {},
   },
 
+  {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = true,
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  },
   -- language specific extension modules
   { import = "plugins.extras.lang.js-ts" },
   { import = "plugins.extras.lang.python" },
