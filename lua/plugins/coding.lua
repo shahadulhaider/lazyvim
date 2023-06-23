@@ -164,5 +164,5 @@ return {
       vim.g.undotree_SetFocusWhenToggle = 1
     end,
   },
-  { "mattn/emmet-vim" },
+  { "mattn/emmet-vim", event = "VeryLazy" },
 }
