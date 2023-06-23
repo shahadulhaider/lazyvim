@@ -79,7 +79,6 @@ return {
           actions.shellcheck,
           actions.gitsigns,
           actions.refactoring,
-          actions.ts_node_action,
 
           -- Hover
           hover.printenv,

@@ -47,11 +47,6 @@ return {
     opts = {},
   },
   {
-    "ckolkey/ts-node-action",
-    dependencies = { "nvim-treesitter" },
-    opts = {},
-  },
-  {
     "kkharji/sqlite.lua",
     enabled = function()
       return not jit.os:find("Windows")
