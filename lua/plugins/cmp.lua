@@ -24,28 +24,6 @@ return {
       { "jcha0713/cmp-tw2css" },
       { "dcampos/cmp-emmet-vim" },
     },
-    config = function(_, opts)
-      local cmp = require("cmp")
-      cmp.setup(opts)
-
-      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "buffer" },
-        }),
-      })
-
-      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
-      })
-    end,
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local function border(hl_name)
@@ -135,6 +113,29 @@ return {
           end
         end, { "i", "s" }),
       })
+    end,
+
+    config = function(_, opts)
+      local cmp = require("cmp")
+      cmp.setup(opts)
+
+      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "buffer" },
+        }),
+      })
+
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      -- cmp.setup.cmdline(":", {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = cmp.config.sources({
+      --     { name = "path" },
+      --   }, {
+      --     { name = "cmdline" },
+      --   }),
+      -- })
     end,
   },
 }
