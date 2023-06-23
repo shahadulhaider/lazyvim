@@ -41,7 +41,9 @@ return {
         inverse = true, -- invert background for search, diffs, statuslines and errors
         contrast = "hard", -- can be "hard", "soft" or empty string
         palette_overrides = {},
-        overrides = {},
+        overrides = {
+          SignColumn = { link = "bg" },
+        },
         dim_inactive = true,
         transparent_mode = false,
       })
@@ -123,10 +125,6 @@ return {
       })
     end,
   },
-  {
-    "savq/melange-nvim",
-    lazy = true,
-  },
   { "projekt0n/github-nvim-theme", lazy = false },
   {
     "rebelot/kanagawa.nvim",
@@ -179,14 +177,6 @@ return {
     end,
   },
   { "Shatur/neovim-ayu", lazy = false },
-  {
-    "lalitmee/cobalt2.nvim",
-    event = { "ColorSchemePre" }, -- if you want to lazy load
-    dependencies = { "tjdevries/colorbuddy.nvim" },
-    init = function()
-      require("colorbuddy").colorscheme("cobalt2")
-    end,
-  },
   { "rose-pine/neovim", name = "rose-pine", lazy = false },
   -- {"folke/tokyonight.nvim"}
   {
@@ -274,25 +264,6 @@ return {
       })
     end,
   },
-  {
-    "Mofiqul/adwaita.nvim",
-    lazy = false,
-  },
-  -- {
-  --   "tanvirtin/monokai.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("monokai").setup({
-  --       palette = require("monokai").pro,
-  --     })
-  --   end,
-  -- },
-  {
-    "rockyzhang24/arctic.nvim",
-    branch = "v2",
-    dependencies = { "rktjmp/lush.nvim" },
-  },
-
   -- set colorscheme
   {
     "LazyVim/LazyVim",
