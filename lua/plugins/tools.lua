@@ -177,4 +177,6 @@ return {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
   },
+
+  { import = "lazyvim.plugins.extras.editor.mini-files" },
 }
