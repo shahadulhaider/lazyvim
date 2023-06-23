@@ -11,7 +11,7 @@ return {
       },
       { "nvim-telescope/telescope-file-browser.nvim" },
       -- { "nvim-telescope/telescope-dap.nvim" },
-      { "nvim-telescope/telescope-project.nvim" },
+      -- { "nvim-telescope/telescope-project.nvim" },
       { "debugloop/telescope-undo.nvim" },
     },
 
@@ -31,7 +31,7 @@ return {
         desc = "Switch Buffers",
       },
       {
-        "<leader>fp",
+        "<leader>fl",
         function()
           require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
         end,
@@ -85,11 +85,11 @@ return {
         lsp_workspace_symbols = { theme = "ivy" },
       },
       extensions = {
-        project = {
-          base_dirs = {
-            { "~/code/otter/" },
-          },
-        },
+        -- project = {
+        --   base_dirs = {
+        --     { "~/code/otter/" },
+        --   },
+        -- },
         undo = {
           use_delta = true,
           side_by_side = true,
@@ -117,7 +117,7 @@ return {
       telescope.load_extension("fzf")
       telescope.load_extension("file_browser")
       -- telescope.load_extension("dap")
-      telescope.load_extension("project")
+      -- telescope.load_extension("project")
       telescope.load_extension("undo")
     end,
   },

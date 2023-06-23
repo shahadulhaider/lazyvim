@@ -1,17 +1,4 @@
 return {
-
-  -- projects
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup({
-        detection_methods = { "pattern", "lsp" },
-        ignore_lsp = { "null-ls" },
-        patterns = { ".git" },
-      })
-    end,
-  },
-
   -- neorg
   {
     "nvim-neorg/neorg",
@@ -161,6 +148,4 @@ return {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
   },
-
-  { import = "lazyvim.plugins.extras.editor.mini-files" },
 }
