@@ -126,6 +126,7 @@ return {
     end,
   },
   { "projekt0n/github-nvim-theme", lazy = false },
+  { "RRethy/nvim-base16", lazy = false },
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
@@ -263,6 +264,11 @@ return {
         },
       })
     end,
+  },
+  {
+    "echasnovski/mini.base16",
+    version = false,
+    lazy = false,
   },
   -- set colorscheme
   {
