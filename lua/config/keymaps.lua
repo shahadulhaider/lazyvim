@@ -76,3 +76,28 @@ if Util.has("lspsaga.nvim") then
   keymap("n", "gli", "<cmd>Lspsaga incoming_calls<CR>")
   keymap("n", "glo", "<cmd>Lspsaga outgoing_calls<CR>")
 end
+
+-- gitlinker
+if Util.has("gitlinker.nvim") then
+  keymap(
+    "n",
+    "<leader>gb",
+    '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+    { silent = true, desc = "GitLink Open in Browser" }
+  )
+  keymap(
+    "v",
+    "<leader>gb",
+    '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+    { desc = "GitLink Open in Browser" }
+  )
+  keymap(
+    "n",
+    "<leader>gy",
+    '<cmd>lua require"gitlinker".get_buf_range_url("n")<cr>',
+    { silent = true, desc = "GitLink Copy" }
+  )
+  keymap("v", "<leader>gy", '<cmd>lua require"gitlinker".get_buf_range_url("v")<cr>', { desc = "GitLink Copy" })
+end
+
+keymap("n", "<leader>gm", "<cmd>Gitsigns blame_line<CR>", { desc = "Git Blame" })

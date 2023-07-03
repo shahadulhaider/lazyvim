@@ -1,16 +1,11 @@
 return {
   {
-    "f-person/git-blame.nvim",
-    event = { "BufReadPre" },
-  },
-  {
     "akinsho/git-conflict.nvim",
     event = "VeryLazy",
     config = true,
   },
   {
-
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     event = { "BufReadPost" },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -19,23 +14,21 @@ return {
     keys = {
       { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" },
     },
+    config = function()
+      require("neogit").setup({
+        integrations = {
+          diffview = true,
+        },
+      })
+    end,
   },
-
-  -- better diffing
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
-    config = true,
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" } },
-  },
-  { "rhysd/git-messenger.vim", event = "BufRead" },
-  { "rhysd/committia.vim", event = "BufRead" },
   {
     "ruifm/gitlinker.nvim",
     event = "BufRead",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("gitlinker").setup()
+    config = function(_, opts)
+      local gitlinker = require("gitlinker")
+      gitlinker.setup(opts)
     end,
   },
   { "pwntester/octo.nvim", cmd = "Octo", config = true },
