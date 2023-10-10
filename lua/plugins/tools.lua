@@ -110,17 +110,17 @@ return {
     config = true,
   },
 
-  {
-    "zbirenbaum/neodim",
-    event = "LspAttach",
-    opts = {
-      hide = {
-        virtual_text = false,
-        signs = false,
-        underline = false,
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/neodim",
+  --   event = "LspAttach",
+  --   opts = {
+  --     hide = {
+  --       virtual_text = false,
+  --       signs = false,
+  --       underline = false,
+  --     },
+  --   },
+  -- },
 
   {
     "LudoPinelli/comment-box.nvim",
@@ -143,9 +143,20 @@ return {
       },
     },
   },
-
   {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    opts = {},
+    keys = {
+
+      {
+        "<leader>uv",
+        "<cmd>Hardline toggle<cr>",
+        desc = "Toggle Hardtime",
+      },
+    },
   },
 }

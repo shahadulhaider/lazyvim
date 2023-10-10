@@ -28,7 +28,7 @@ return {
 
   -- null-ls
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     config = function()
       local nls = require("null-ls")
       local formatting = nls.builtins.formatting
@@ -63,7 +63,9 @@ return {
           formatting.goimports,
           formatting.golines,
 
-          -- Diagnostic
+          formatting.black,
+
+          diagnostics.flake8,
           diagnostics.markdownlint,
           diagnostics.rubocop.with({
             command = "rubocop-daemon-wrapper",
@@ -74,7 +76,7 @@ return {
           diagnostics.shellcheck,
 
           -- Code Actions
-          actions.eslint,
+          -- actions.eslint,
           actions.eslint_d,
           actions.shellcheck,
           actions.gitsigns,
@@ -103,6 +105,22 @@ return {
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
       { "nvim-treesitter/nvim-treesitter" },
+    },
+  },
+  {
+    "VidocqH/lsp-lens.nvim",
+    event = "LspAttach",
+    opts = {
+      enable = true,
+      include_declaration = false, -- Reference include declaration
+      sections = {                 -- Enable / Disable specific request
+        definition = false,
+        references = true,
+        implementation = true,
+      },
+      ignore_filetype = {
+        "prisma",
+      },
     },
   },
   -- language specific extension modules

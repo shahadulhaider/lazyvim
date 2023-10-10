@@ -16,21 +16,6 @@ return {
     end,
   },
 
-  -- add diagnostic and formatter options to null-ls
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        sources = {
-          -- nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.black,
-          nls.builtins.diagnostics.flake8,
-        },
-      }
-    end,
-  },
-
   -- add lsp server for python
   {
     "neovim/nvim-lspconfig",
