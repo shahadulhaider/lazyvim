@@ -8,20 +8,15 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 -- Dashboard
--- Add keymap to open alpha dashboard
-keymap("n", "<leader>;", function()
-  -- close all open buffers before open dashboard
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
-    if buftype ~= "terminal" then
-      vim.api.nvim_buf_delete(bufnr, { force = true })
-    end
-  end
-
-  if Util.has("alpha-nvim") then
-    require("alpha").start(true)
-  end
-end, opts)
+-- keymap("n", "<leader>;", function()
+--   -- close all open buffers before open dashboard
+--   for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+--     local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
+--     if buftype ~= "terminal" then
+--       vim.api.nvim_buf_delete(bufnr, { force = true })
+--     end
+--   end
+-- end, opts)
 
 -- Copy whole file content to clipboard with C-y
 keymap("n", "<C-y>", ":%y+<CR>", opts)
