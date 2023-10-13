@@ -113,7 +113,7 @@ return {
     opts = {
       enable = true,
       include_declaration = false, -- Reference include declaration
-      sections = {                 -- Enable / Disable specific request
+      sections = { -- Enable / Disable specific request
         definition = false,
         references = true,
         implementation = true,
@@ -123,10 +123,4 @@ return {
       },
     },
   },
-  -- language specific extension modules
-  { import = "plugins.extras.lang.js-ts" },
-  { import = "plugins.extras.lang.python" },
-  -- { import = "plugins.extras.lang.ruby" },
-  -- { import = "plugins.extras.lang.go" },
-  -- { import = "plugins.extras.lang.liquid" },
 }
