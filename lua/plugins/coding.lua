@@ -29,8 +29,8 @@ return {
     keys = {
       {
         "<leader>cR",
-        function()
-          require("refactoring").select_refactor()
+        function(opts)
+          require("refactoring").select_refactor(opts)
         end,
         mode = { "n", "x", "v" },
         noremap = true,
