@@ -1,4 +1,5 @@
 return {
+  { "glepnir/dashboard-nvim", enabled = false },
   -- disable nvim spectrum
   -- { "windwp/nvim-spectre", enabled = false },
   -- disable nvim-notify
