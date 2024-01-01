@@ -4,6 +4,12 @@ return {
     event = "VeryLazy",
     config = true,
   },
+  {
+    "f-person/git-blame.nvim",
+
+    event = "VeryLazy",
+    config = true,
+  },
   -- {
   --   "NeogitOrg/neogit",
   --   event = { "BufReadPost" },

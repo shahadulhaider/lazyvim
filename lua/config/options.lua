@@ -9,6 +9,8 @@ vim.opt.foldmethod = "indent"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.cmd([[set nofoldenable]]) -- stop auto-fold on file open
 
+vim.g.autoformat = false
+
 vim.g.os = vim.loop.os_uname().sysname
 vim.g.open_command = vim.g.os == "Darwin" and "open" or "xdg-open"
 -- vim.g.dotfiles = vim.env.DOTFILES or vim.fn.expand("~/.dotfiles")

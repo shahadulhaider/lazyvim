@@ -126,7 +126,8 @@ return {
     end,
   },
   { "projekt0n/github-nvim-theme", lazy = false },
-  { "RRethy/nvim-base16", lazy = false },
+  -- { "RRethy/nvim-base16", lazy = false },
+  { "echasnovski/mini.base16", version = false },
   {
     "rebelot/kanagawa.nvim",
     lazy = false,

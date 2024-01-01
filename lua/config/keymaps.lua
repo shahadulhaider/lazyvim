@@ -7,6 +7,15 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
+keymap("n", "<C-d>", "<C-d>zz", { silent = true, desc = "Go Down" })
+keymap("n", "<C-u>", "<C-u>zz", { silent = true, desc = "Go Up" })
+keymap("n", "<C-i>", "<C-i>zz", { silent = true, desc = "Next jumplist" })
+keymap("n", "<C-o>", "<C-o>zz", { silent = true, desc = "Previous jumplist" })
+
+-- centers search function
+keymap("n", "n", "nzzzv", { silent = true, desc = "Next Search Result" })
+keymap("n", "N", "Nzzzv", { silent = true, desc = "Previous Search Result" })
+
 -- Dashboard
 -- keymap("n", "<leader>;", function()
 --   -- close all open buffers before open dashboard

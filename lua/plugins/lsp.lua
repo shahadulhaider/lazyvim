@@ -26,70 +26,70 @@ return {
     },
   },
 
-  -- null-ls
-  {
-    "nvimtools/none-ls.nvim",
-    config = function()
-      local nls = require("null-ls")
-      local formatting = nls.builtins.formatting
-      local diagnostics = nls.builtins.diagnostics
-      local actions = nls.builtins.code_actions
-      local hover = nls.builtins.hover
-
-      nls.setup({
-        debounce = 150,
-        save_after_format = false,
-        sources = {
-          -- Formatting
-          formatting.stylua,
-          -- formatting.fish_indent,
-          formatting.prettierd.with({
-            filetypes = {
-              "javascript",
-              "typescript",
-              "javascriptreact",
-              "typescriptreact",
-              "graphql",
-              "json",
-              "html",
-              "yaml",
-              "markdown",
-              "css",
-              -- "liquid",
-            },
-          }),
-          formatting.pg_format,
-          formatting.gofumpt,
-          formatting.goimports,
-          formatting.golines,
-
-          formatting.black,
-
-          diagnostics.flake8,
-          diagnostics.markdownlint,
-          diagnostics.rubocop.with({
-            command = "rubocop-daemon-wrapper",
-          }),
-          diagnostics.golangci_lint,
-          diagnostics.tidy,
-          diagnostics.eslint_d,
-          diagnostics.shellcheck,
-
-          -- Code Actions
-          -- actions.eslint,
-          actions.eslint_d,
-          actions.shellcheck,
-          actions.gitsigns,
-          actions.refactoring,
-
-          -- Hover
-          hover.printenv,
-          hover.dictionary,
-        },
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
-      })
-    end,
-  },
+  -- -- null-ls
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   config = function()
+  --     local nls = require("null-ls")
+  --     local formatting = nls.builtins.formatting
+  --     local diagnostics = nls.builtins.diagnostics
+  --     local actions = nls.builtins.code_actions
+  --     local hover = nls.builtins.hover
+  --
+  --     nls.setup({
+  --       debounce = 150,
+  --       save_after_format = false,
+  --       sources = {
+  --         -- Formatting
+  --         formatting.stylua,
+  --         -- formatting.fish_indent,
+  --         formatting.prettierd.with({
+  --           filetypes = {
+  --             "javascript",
+  --             "typescript",
+  --             "javascriptreact",
+  --             "typescriptreact",
+  --             "graphql",
+  --             "json",
+  --             "html",
+  --             "yaml",
+  --             "markdown",
+  --             "css",
+  --             -- "liquid",
+  --           },
+  --         }),
+  --         formatting.pg_format,
+  --         formatting.gofumpt,
+  --         formatting.goimports,
+  --         formatting.golines,
+  --
+  --         formatting.black,
+  --
+  --         diagnostics.flake8,
+  --         diagnostics.markdownlint,
+  --         diagnostics.rubocop.with({
+  --           command = "rubocop-daemon-wrapper",
+  --         }),
+  --         diagnostics.golangci_lint,
+  --         diagnostics.tidy,
+  --         diagnostics.eslint_d,
+  --         diagnostics.shellcheck,
+  --
+  --         -- Code Actions
+  --         -- actions.eslint,
+  --         actions.eslint_d,
+  --         actions.shellcheck,
+  --         actions.gitsigns,
+  --         actions.refactoring,
+  --
+  --         -- Hover
+  --         hover.printenv,
+  --         hover.dictionary,
+  --       },
+  --       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
+  --     })
+  --   end,
+  -- },
 
   -- highlight arguments
   {

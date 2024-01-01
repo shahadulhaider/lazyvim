@@ -1,37 +1,41 @@
 return {
   -- neorg
-  {
-    "nvim-neorg/neorg",
-    ft = "norg",
-    build = ":Neorg sync-parsers",
-    opts = {
-      load = {
-        ["core.defaults"] = {},
-        ["core.norg.concealer"] = {},
-        ["core.norg.completion"] = {
-          config = { engine = "nvim-cmp" },
-        },
-        ["core.integrations.nvim-cmp"] = {},
-        ["core.norg.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/notes",
-            },
-          },
-        },
-        ["core.integrations.telescope"] = {},
-      },
-    },
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-neorg/neorg-telescope" },
-    },
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   ft = "norg",
+  --   build = ":Neorg sync-parsers",
+  --   opts = {
+  --     load = {
+  --       ["core.defaults"] = {},
+  --       ["core.norg.concealer"] = {},
+  --       ["core.norg.completion"] = {
+  --         config = { engine = "nvim-cmp" },
+  --       },
+  --       ["core.integrations.nvim-cmp"] = {},
+  --       ["core.norg.dirman"] = { -- Manages Neorg workspaces
+  --         config = {
+  --           workspaces = {
+  --             notes = "~/notes",
+  --           },
+  --         },
+  --       },
+  --       ["core.integrations.telescope"] = {},
+  --     },
+  --   },
+  --   dependencies = {
+  --     { "nvim-lua/plenary.nvim" },
+  --     { "nvim-neorg/neorg-telescope" },
+  --   },
+  -- },
+
+  { "echasnovski/mini.align", version = false },
 
   -- markdown preview
   {
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     keys = {
       {
         "<leader>op",
