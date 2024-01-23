@@ -126,8 +126,17 @@ return {
     end,
   },
   { "projekt0n/github-nvim-theme", lazy = false },
+  {
+    "mellow-theme/mellow.nvim",
+    lazy = false,
+    init = function()
+      vim.g.mellow_italic_keywords = true
+      vim.g.mellow_italic_variables = true
+      vim.g.mellow_italic_functions = true
+      vim.g.mellow_bold_functions = true
+    end,
+  },
   -- { "RRethy/nvim-base16", lazy = false },
-  { "echasnovski/mini.base16", version = false },
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
@@ -275,7 +284,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "mellow",
     },
   },
 }
