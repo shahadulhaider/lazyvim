@@ -22,3 +22,5 @@ CDK
 Django
 MongoDB
 Redis
+kubernetes
+dockerized

@@ -225,22 +225,22 @@ return {
           -- hl.LineNr = { fg = c.orange, bold = true }
           -- hl.LineNrAbove = { fg = c.fg_gutter }
           -- hl.LineNrBelow = { fg = c.fg_gutter }
-          local prompt = "#2d3149"
-          hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
-          hl.TelescopeBorder = { bg = c.bg_dark, fg = c.bg_dark }
-          hl.TelescopePromptNormal = { bg = prompt }
-          hl.TelescopePromptBorder = { bg = prompt, fg = prompt }
-          hl.TelescopePromptTitle = { bg = c.fg_gutter, fg = c.cyan }
-          hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
-          hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
-
-          hl.TSRainbowRed = { fg = c.red }
-          hl.TSRainbowYellow = { fg = c.yellow }
-          hl.TSRainbowBlue = { fg = c.blue }
-          hl.TSRainbowOrange = { fg = c.orange }
-          hl.TSRainbowGreen = { fg = c.green2 }
-          hl.TSRainbowViolet = { fg = c.purple }
-          hl.TSRainbowCyan = { fg = c.cyan }
+          -- local prompt = "#2d3149"
+          -- hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
+          -- hl.TelescopeBorder = { bg = c.bg_dark, fg = c.bg_dark }
+          -- hl.TelescopePromptNormal = { bg = prompt }
+          -- hl.TelescopePromptBorder = { bg = prompt, fg = prompt }
+          -- hl.TelescopePromptTitle = { bg = c.fg_gutter, fg = c.cyan }
+          -- hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
+          -- hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
+          --
+          -- hl.TSRainbowRed = { fg = c.red }
+          -- hl.TSRainbowYellow = { fg = c.yellow }
+          -- hl.TSRainbowBlue = { fg = c.blue }
+          -- hl.TSRainbowOrange = { fg = c.orange }
+          -- hl.TSRainbowGreen = { fg = c.green2 }
+          -- hl.TSRainbowViolet = { fg = c.purple }
+          -- hl.TSRainbowCyan = { fg = c.cyan }
         end,
       }
     end,
@@ -284,7 +284,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "mellow",
+      colorscheme = "tokyonight",
     },
   },
 }
